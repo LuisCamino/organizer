@@ -4,17 +4,21 @@ import shutil
 
 # bloque texto
 txt_array = [".txt", ".doc", ".docx", "odt", "wri"]
-if os.path.isdir('text'):
-    for txt_file in os.listdir("./"):
-        for tex in txt_array:
-            if txt_file.endswith(tex):
-                shutil.move(txt_file, "./text")
+for txt_file in os.listdir("./"):
+    for tex in txt_array:
+        fila = txt_file
+        filo = tex
 
-else:
-    os.mkdir("text")
-    for txt_file in os.listdir("./"):
-        if txt_file.endswith(".txt") or txt_file.endswith(".doc"):
-            shutil.move(txt_file, "./text")
+        if os.path.isdir('text'):
+            if txt_file.endswith(filo):
+                shutil.move(fila, "./text")
+
+        else:
+
+            if txt_file.endswith(filo):
+                if fila:
+                    os.mkdir("text")
+                    shutil.move(fila, "./text")
 
 
 # bloque imagenes
