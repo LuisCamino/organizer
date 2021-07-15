@@ -3,7 +3,8 @@ import shutil
 
 
 # bloque texto
-txt_array = [".txt", ".doc", ".docx", ".odt", ".wri"]
+txt_array = [".txt", ".TXT", ".doc", ".DOC",
+             ".docx", ".DOCX", ".odt", ".ODT", ".wri", ".WRI"]
 for txt_file in os.listdir("./"):
     for tex in txt_array:
         current_text = txt_file
@@ -21,7 +22,8 @@ for txt_file in os.listdir("./"):
 
 
 # bloque imagenes
-img_array = [".jpg", ".png", ".jpeg", ".tif", ".tiff", ".svg"]
+img_array = [".jpg", ".JPG", ".jpeg", ".JPEG", ".png",
+             ".PNG", ".tif", ".TIF", ".tiff", ".TIFF", ".svg", ".SVG"]
 for img_file in os.listdir("./"):
     for im in img_array:
         current_img = img_file
@@ -53,3 +55,74 @@ for pdf_file in os.listdir("./"):
                 if current_pdf:
                     os.mkdir("pdf")
                     shutil.move(current_pdf, "./pdf")
+
+# bloque presentaciones
+pst_array = [".pptx", ".PPTX", ".pptm", ".PPTM", ".ppt", ".PPT"]
+for pst_file in os.listdir("./"):
+    for pst in pst_array:
+        current_pst = pst_file
+        target_pst = pst
+
+        if os.path.isdir('presentation'):
+            if pst_file.endswith(target_pst):
+                shutil.move(current_pst, "./presentation")
+
+        else:
+            if pst_file.endswith(target_pst):
+                if current_pst:
+                    os.mkdir("presentation")
+                    shutil.move(current_pst, "./presentation")
+
+# bloque calc
+clc_array = [".csv", ".CSV", ".xlsx",
+             ".XLSX", ".xls", ".XLS", ".xlt", ".XLT", ]
+for clc_file in os.listdir("./"):
+    for clc in clc_array:
+        current_clc = clc_file
+        target_clc = clc
+
+        if os.path.isdir('calc'):
+            if clc_file.endswith(target_clc):
+                shutil.move(current_clc, "./calc")
+
+        else:
+            if clc_file.endswith(target_clc):
+                if current_clc:
+                    os.mkdir("calc")
+                    shutil.move(current_clc, "./calc")
+
+# bloque calc
+cmp_array = [".rar", ".RAR", ".zip", ".ZIP", ".tar.gz",
+             ".TARG.GZ", ".7zip", ".7ZIP", ".7z", ".7Z"]
+for cmp_file in os.listdir("./"):
+    for cmp in cmp_array:
+        current_cmp = cmp_file
+        target_cmp = cmp
+
+        if os.path.isdir('rar'):
+            if cmp_file.endswith(target_cmp):
+                shutil.move(current_cmp, "./rar")
+
+        else:
+            if cmp_file.endswith(target_cmp):
+                if current_cmp:
+                    os.mkdir("rar")
+                    shutil.move(current_cmp, "./rar")
+
+# bloque programas
+exe_array = [""]
+for exe_file in os.listdir("./"):
+    for exe in exe_array:
+        current_exe = exe_file
+        target_exe = exe
+        print(exe_file)
+
+        if os.path.isdir('program'):
+            if exe_file.endswith(target_exe):
+                shutil.move(current_exe, "./program")
+
+        else:
+            if exe_file.endswith(target_exe):
+                if current_exe:
+                    os.mkdir("program")
+                    shutil.move(current_exe, "./program")
