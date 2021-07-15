@@ -29,15 +29,15 @@ for img_file in os.listdir("./"):
         current_img = img_file
         target_img = im
 
-        if os.path.isdir('img'):
+        if os.path.isdir('photos'):
             if img_file.endswith(target_img):
-                shutil.move(current_img, "./img")
+                shutil.move(current_img, "./photos")
 
         else:
             if img_file.endswith(target_img):
                 if current_img:
-                    os.mkdir("img")
-                    shutil.move(current_img, "./img")
+                    os.mkdir("photos")
+                    shutil.move(current_img, "./photos")
 
 # bloque pdf
 pdf_array = [".pdf", ".PDF"]
@@ -63,15 +63,15 @@ for pst_file in os.listdir("./"):
         current_pst = pst_file
         target_pst = pst
 
-        if os.path.isdir('presentation'):
+        if os.path.isdir('presentations'):
             if pst_file.endswith(target_pst):
-                shutil.move(current_pst, "./presentation")
+                shutil.move(current_pst, "./presentations")
 
         else:
             if pst_file.endswith(target_pst):
                 if current_pst:
-                    os.mkdir("presentation")
-                    shutil.move(current_pst, "./presentation")
+                    os.mkdir("presentations")
+                    shutil.move(current_pst, "./presentations")
 
 # bloque calc
 clc_array = [".csv", ".CSV", ".xlsx",
@@ -110,19 +110,18 @@ for cmp_file in os.listdir("./"):
                     shutil.move(current_cmp, "./rar")
 
 # bloque programas
-exe_array = [""]
+exe_array = [".lnk", ".LNK"]
 for exe_file in os.listdir("./"):
     for exe in exe_array:
         current_exe = exe_file
         target_exe = exe
-        print(exe_file)
 
-        if os.path.isdir('program'):
-            if exe_file.endswith(target_exe):
-                shutil.move(current_exe, "./program")
+        if os.path.isdir('programs  '):
+            if not(exe_file.endswith(target_exe)):
+                shutil.move(current_exe, "./programs")
 
         else:
             if exe_file.endswith(target_exe):
                 if current_exe:
-                    os.mkdir("program")
-                    shutil.move(current_exe, "./program")
+                    os.mkdir("programs")
+                    shutil.move(current_exe, "./programs")
