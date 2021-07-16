@@ -110,14 +110,14 @@ for cmp_file in os.listdir("./"):
                     shutil.move(current_cmp, "./rar")
 
 # bloque programas
-exe_array = [".lnk", ".LNK"]
+exe_array = [".lnk", ".LNK", ".exe", ".EXE"]
 for exe_file in os.listdir("./"):
     for exe in exe_array:
         current_exe = exe_file
         target_exe = exe
 
-        if os.path.isdir('programs  '):
-            if not(exe_file.endswith(target_exe)):
+        if os.path.isdir('programs'):
+            if exe_file.endswith(target_exe):
                 shutil.move(current_exe, "./programs")
 
         else:
@@ -125,3 +125,22 @@ for exe_file in os.listdir("./"):
                 if current_exe:
                     os.mkdir("programs")
                     shutil.move(current_exe, "./programs")
+
+
+# bloque videos
+vid_array = [".mp4", ".MP4", ".mov", ".MOV",
+             ".flv", ".FLV", ".wmv", ".WMV", ".avi", ".AVI", ".asf", ".ASF"]
+for vid_file in os.listdir("./"):
+    for vid in vid_array:
+        current_vid = vid_file
+        target_vid = vid
+
+        if os.path.isdir('videos'):
+            if vid_file.endswith(target_vid):
+                shutil.move(current_vid, "./videos")
+
+        else:
+            if vid_file.endswith(target_vid):
+                if current_vid:
+                    os.mkdir("videos")
+                    shutil.move(current_vid, "./videos")
